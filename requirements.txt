@@ -1,5 +1,4 @@
 Django~= 2.2.4
-graphene-django = "*"
-django-graphiql = "*"
-django-filter = "*"
-django-cors-headers = "*"
+graphene-django = 2.13.0
+django-filter = 2.4.0
+django-cors-headers = 3.5.0
