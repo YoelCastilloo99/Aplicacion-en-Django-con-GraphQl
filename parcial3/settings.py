@@ -26,7 +26,7 @@ SECRET_KEY = '0#nt9)e^!7#ode8@8w@fit)=521qlm$t38$b(_v+gvl4&*wi8p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["127.0.0.1",".herokuapp.com"]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -128,7 +128,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-# urlpatterns += patterns(", (r’^static/(?P.*)$’, ‘django.views.static.serve’, {‘document_root’: settings.STATIC_ROOT}),)
 
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:8080'
