@@ -4,6 +4,12 @@ from .models import *
 from graphene_django.filter import DjangoFilterConnectionField
 from graphql_relay.node.node import from_global_id #needed for updating
 
+class UsuarioNode(DjangoObjectType):
+    class Meta:
+        model = Usuario
+        filter_fields = ['usuario_name', 'password']
+        interfaces = (graphene.relay,Node,)
+
 class ComercialNode(DjangoObjectType):
     class Meta:
         model = Comercial
@@ -28,6 +34,18 @@ class ProductosNode(DjangoObjectType):
                ]
         interfaces = (graphene.relay.Node,)
 
+class CreateUsuario(graphene.relay.ClientIDMutation):
+    usuario = graphene.Field(UsuarioNode)
+    class Input:
+        usuario_name = graphene.String()
+        password = graphene.String()
+    def mutate_and_get_payload(root, info, **input):
+        usuario = Usuario(
+            usuario_name=input.get('usuario_name'),
+            password=input.get('password')
+        )
+        usuario.save()
+        return CreateUsuario(usuario=usuario)
 
 class CreateTitle(graphene.relay.ClientIDMutation):
     title = graphene.Field(TitleNode)
@@ -90,6 +108,9 @@ class Query(object):
     comercial = graphene.relay.Node.Field(ComercialNode)
     all_comercials = DjangoFilterConnectionField(ComercialNode)
 
+    usuario = graphene.relay.Node.Field(UsuarioNode)
+    all_usuarios = DjangoFilterConnectionField(UsuarioNode)
+
     title = graphene.relay.Node.Field(TitleNode)
     all_titles = DjangoFilterConnectionField(TitleNode)
 
@@ -98,6 +119,7 @@ class Query(object):
 
 class Mutation(graphene.AbstractType):
     create_title = CreateTitle.Field()
+    create_usuario = CreateUsuario.Field()
     create_productos = CreateProductos.Field()
     update_productos = UpdateProductos.Field()
     delete_productos = DeleteProductos.Field()

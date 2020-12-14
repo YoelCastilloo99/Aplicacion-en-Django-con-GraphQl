@@ -23,3 +23,12 @@ class Productos(models.Model):
     
     def __str__(self):
        return self.productos_name
+
+#Tabla usuarios
+class Usuario(models.Model):
+    usuario_name = models.CharField(max_length=100)
+    password = models.CharField(max_length=100)
+
+    def __str__(self):
+        return '%s %s'%(self.usuario_name, self.password)
+        
