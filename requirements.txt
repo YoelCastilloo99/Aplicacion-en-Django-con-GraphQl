@@ -1,4 +1,4 @@
-django = "*"
+Django~= 2.2.4
 graphene-django = "*"
 django-graphiql = "*"
 django-filter = "*"
