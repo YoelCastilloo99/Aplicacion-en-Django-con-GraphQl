@@ -26,8 +26,7 @@ SECRET_KEY = '0#nt9)e^!7#ode8@8w@fit)=521qlm$t38$b(_v+gvl4&*wi8p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
-
+ALLOWED_HOSTS = ['.herokuapp.com']
 
 # Application definition
 
@@ -40,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'graphene_django',
     'productos',
-    'corsheaders', 
+    'corsheaders',
 ]
 
 GRAPHENE = {

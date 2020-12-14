@@ -9,7 +9,6 @@ graphene-django = "*"
 django-graphiql = "*"
 django-filter = "*"
 django-cors-headers = "*"
-gunicorn = "*"
 
 [dev-packages]
 
