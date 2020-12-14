@@ -8,7 +8,7 @@ class UsuarioNode(DjangoObjectType):
     class Meta:
         model = Usuario
         filter_fields = ['usuario_name', 'password']
-        interfaces = (graphene.relay,Node,)
+        interfaces = (graphene.relay.Node,)
 
 class ComercialNode(DjangoObjectType):
     class Meta:
