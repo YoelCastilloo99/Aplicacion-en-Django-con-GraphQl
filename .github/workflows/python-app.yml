@@ -30,4 +30,4 @@ jobs:
       python3 manage.py migrate
     - name: Test with pytest
       run: |
-        python manage.py run server
+        python3 manage.py run server
