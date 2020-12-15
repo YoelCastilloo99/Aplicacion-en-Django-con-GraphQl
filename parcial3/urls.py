@@ -24,4 +24,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('graphql/', csrf_exempt(GraphQLView.as_view(graphiql=True))),
     #url(r’^static/(?P.*)$’, ‘django.views.static.serve’, {‘document_root’: settings.STATIC_ROOT})
-] +static(settings.STATIC_URL, document_root=setting.STATIC_ROOT)
+] +static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
