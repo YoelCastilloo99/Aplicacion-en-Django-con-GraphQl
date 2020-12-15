@@ -133,10 +133,6 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:8080'
 ]
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
-
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 if 'DATABASE_URL' in os.environ:
